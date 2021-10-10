@@ -1,12 +1,13 @@
 #include <iostream>
+#include <iso646.h>
 using namespace std;
 
 
 template <typename T>
 void strikeSwap(T& a, T& b) {
-    int c = a;
+    int tmp = a;
     a = b;
-    b = c;
+    b = tmp;
 }
 
 void printArray(int arr[], int size) {
@@ -23,10 +24,21 @@ void bubbleSort(int arr[], const int size) {
     }
 }
 
+//O(n^2)
+void insertSort(int arr[], const int size) {
+    for (size_t i = 1; i < size; ++i) {
+        int k = i;
+        while (k > 0 and arr[k-1] > arr[k]) {
+            strikeSwap(arr[k-1], arr[k]);
+            k--;
+        }
+    }
+}
+
 int main() {
     int arr[5] = { 8,6,7,9,1 };
     printArray(arr, 5);
-    bubbleSort(arr, 5);
+    insertSort(arr, 5);
     printArray(arr, 5);
     return 0;
 }
