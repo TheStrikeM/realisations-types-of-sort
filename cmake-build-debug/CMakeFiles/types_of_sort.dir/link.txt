@@ -1,0 +1,1 @@
+/usr/bin/c++ -g CMakeFiles/types_of_sort.dir/main.cpp.o -o types_of_sort 
